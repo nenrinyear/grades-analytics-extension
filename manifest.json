@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "KSU 専門教育 GPA",
+  "version": "1.0.0",
+  "description": "京都産業大学の成績ページで、専門教育科目の評価からGPAを計算します。",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://websk.kyoto-su.ac.jp/seiseki*"
+      ],
+      "js": [
+        "src/gpa-core.js",
+        "src/content.js"
+      ],
+      "css": [
+        "src/content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
