@@ -11,7 +11,8 @@
     "秀": 4,
     "優": 3,
     "良": 2,
-    "可": 1
+    "可": 1,
+    "*": 0
   });
 
   function normalizeText(value) {
@@ -40,7 +41,8 @@
       "秀": 0,
       "優": 0,
       "良": 0,
-      "可": 0
+      "可": 0,
+      "*": 0
     };
 
     for (const row of rows) {
@@ -59,7 +61,7 @@
         break;
       }
 
-      const grade = normalizeText(row.grade);
+      const grade = normalizeText(row.grade).replace(/＊/g, "*");
       if (!(grade in GRADE_POINTS)) {
         continue;
       }

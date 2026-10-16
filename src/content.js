@@ -61,7 +61,7 @@
     title.textContent = "専門教育科目 GPA";
 
     const formula = document.createElement("p");
-    formula.textContent = "秀=4、優=3、良=2、可=1 として単位数で加重平均しています。";
+    formula.textContent = "秀=4、優=3、良=2、可=1、落単（*）=0 として単位数で加重平均しています。";
 
     header.append(title, formula);
 
@@ -72,11 +72,12 @@
       createStat("GPA", result.gpa === null ? "-" : formatNumber(result.gpa, 2)),
       createStat("対象単位", formatNumber(result.totalCredits, 1).replace(/\.0$/, "")),
       createStat("対象科目", String(result.courseCount)),
-      createStat("秀 / 優 / 良 / 可", [
+      createStat("秀 / 優 / 良 / 可 / 落単", [
         result.gradeCounts["秀"],
         result.gradeCounts["優"],
         result.gradeCounts["良"],
-        result.gradeCounts["可"]
+        result.gradeCounts["可"],
+        result.gradeCounts["*"]
       ].join(" / "))
     );
 
